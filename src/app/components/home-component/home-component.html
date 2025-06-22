@@ -1,22 +1,23 @@
-<p-tabs [value]="currentTab">
+<p-tabs (valueChange)="currentTab.set($event)" [value]="currentTab()">
   <p-tablist>
     <p-tab [value]="0">Cities</p-tab>
     <p-tab [value]="1">Countries</p-tab>
     <p-tab [value]="2">Continents</p-tab>
     <div class="tabs-buttons">
-      <p-button label="Reset" (onClick)="resetTabs()"></p-button>
-      <p-button label="BOOM" (onClick)="currentTab = 1"></p-button>
+      <p-button (onClick)="resetTabs()" label="Reset"></p-button>
+      <p-button (onClick)="currentTab.set(1)" label="BOOM"></p-button>
+      <p-button (onClick)="logStuff()" label="LOG"></p-button>
     </div>
   </p-tablist>
   <p-tabpanels>
     <p-tabpanel [value]="0">
-      <cities />
+      <cities/>
     </p-tabpanel>
     <p-tabpanel [value]="1">
-      <countries />
+      <countries/>
     </p-tabpanel>
     <p-tabpanel [value]="2">
-      <continents />
+      <continents/>
     </p-tabpanel>
   </p-tabpanels>
 </p-tabs>

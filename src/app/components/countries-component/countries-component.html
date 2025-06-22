@@ -1,16 +1,31 @@
-<p-table [value]="countries()">
+<p-table [columns]="enabledColumns()" [value]="countries()">
+  <ng-template pTemplate="caption">
+    <p-multiSelect (ngModelChange)="enabledColumns.set($event)" [ngModel]="enabledColumns()" [options]="availableColumns()"
+                   [style]="{ 'min-width': '200px' }" display="chip"
+                   optionLabel="header" placeholder="Choose Columns"
+                   selectedItemsLabel="{0} columns selected"/>
+  </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Top level domain</th>
+      <th [hidden]="!isColumnEnabled('code')" pSortableColumn="code">
+        Code
+        <p-sortIcon field="code"/>
+      </th>
+      <th [hidden]="!isColumnEnabled('name')" pSortableColumn="name">
+        Name
+        <p-sortIcon field="name"/>
+      </th>
+      <th [hidden]="!isColumnEnabled('tld')" pSortableColumn="tld">
+        Top level domain
+        <p-sortIcon field="tld"/>
+      </th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-col>
+  <ng-template let-col pTemplate="body">
     <tr>
-      <td>{{col.code}}</td>
-      <td>{{col.name}}</td>
-      <td>{{col.tld}}</td>
+      <td [hidden]="!isColumnEnabled('code')">{{ col.code }}</td>
+      <td [hidden]="!isColumnEnabled('name')">{{ col.name }}</td>
+      <td [hidden]="!isColumnEnabled('tld')">{{ col.tld }}</td>
     </tr>
   </ng-template>
 </p-table>

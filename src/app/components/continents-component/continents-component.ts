@@ -1,11 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Signal,
-  signal,
-} from "@angular/core";
-import { TableModule } from "primeng/table";
-import { Continent } from "../../model/home";
+import {ChangeDetectionStrategy, Component, Signal, signal,} from "@angular/core";
+import {TableModule} from "primeng/table";
+import {Continent} from "../../model/home";
 
 @Component({
   selector: "continents",
@@ -22,7 +17,7 @@ export class ContinentsComponent {
       population: 745173774,
     },
     {
-      name: "Asian",
+      name: "Asia",
       landAreaKm: 44614000,
       population: 4694576167,
     },

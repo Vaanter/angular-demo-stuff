@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { CountriesComponent } from "../countries-component/countries-component";
-import { CitiesComponent } from "../cities-component/cities-component";
-import { ContinentsComponent } from "../continents-component/continents-component";
-import { TabsModule } from "primeng/tabs";
-import { ButtonModule } from "primeng/button";
+import {ChangeDetectionStrategy, Component, input, InputSignal, OnInit, signal, WritableSignal,} from "@angular/core";
+import {CountriesComponent} from "../countries-component/countries-component";
+import {CitiesComponent} from "../cities-component/cities-component";
+import {ContinentsComponent} from "../continents-component/continents-component";
+import {TabsModule} from "primeng/tabs";
+import {ButtonModule} from "primeng/button";
 
 @Component({
   selector: "app-home",
@@ -18,11 +18,22 @@ import { ButtonModule } from "primeng/button";
   styleUrl: "./home-component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
-  public currentTab = 0;
+export class HomeComponent implements OnInit {
+  public userId: InputSignal<number | undefined> = input();
+
+  public currentTab: WritableSignal<number | string> = signal(0);
+
+  ngOnInit(): void {
+    console.log("userId", this.userId());
+  }
 
   public resetTabs() {
     console.log("resetting");
-    this.currentTab = 0;
+    this.currentTab.set(0);
+  }
+
+  public logStuff() {
+    console.log("userId", this.userId());
+    console.log("currentTab", this.currentTab());
   }
 }

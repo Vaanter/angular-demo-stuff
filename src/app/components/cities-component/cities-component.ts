@@ -1,11 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Signal,
-  signal,
-} from "@angular/core";
-import { City } from "../../model/home";
-import { TableModule } from "primeng/table";
+import {ChangeDetectionStrategy, Component, Signal, signal,} from "@angular/core";
+import {City} from "../../model/home";
+import {TableModule} from "primeng/table";
 
 @Component({
   selector: "cities",

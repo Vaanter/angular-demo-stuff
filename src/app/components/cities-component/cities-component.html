@@ -6,11 +6,11 @@
       <th>Post number</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-col>
+  <ng-template let-col pTemplate="body">
     <tr>
-      <td>{{col.code}}</td>
-      <td>{{col.name}}</td>
-      <td>{{col.postNumber}}</td>
+      <td>{{ col.code }}</td>
+      <td>{{ col.name }}</td>
+      <td>{{ col.postNumber }}</td>
     </tr>
   </ng-template>
 </p-table>
