@@ -4,6 +4,7 @@ import {CitiesComponent} from "../cities-component/cities-component";
 import {ContinentsComponent} from "../continents-component/continents-component";
 import {TabsModule} from "primeng/tabs";
 import {ButtonModule} from "primeng/button";
+import {FormComponent} from '../form-component/form-component';
 
 @Component({
   selector: "app-home",
@@ -13,6 +14,7 @@ import {ButtonModule} from "primeng/button";
     CitiesComponent,
     ContinentsComponent,
     TabsModule,
+    FormComponent,
   ],
   templateUrl: "./home-component.html",
   styleUrl: "./home-component.scss",

@@ -3,6 +3,7 @@
     <p-tab [value]="0">Cities</p-tab>
     <p-tab [value]="1">Countries</p-tab>
     <p-tab [value]="2">Continents</p-tab>
+    <p-tab [value]="3">Form</p-tab>
     <div class="tabs-buttons">
       <p-button (onClick)="resetTabs()" label="Reset"></p-button>
       <p-button (onClick)="currentTab.set(1)" label="BOOM"></p-button>
@@ -18,6 +19,9 @@
     </p-tabpanel>
     <p-tabpanel [value]="2">
       <continents/>
+    </p-tabpanel>
+    <p-tabpanel [value]="3">
+      <form-component/>
     </p-tabpanel>
   </p-tabpanels>
 </p-tabs>
